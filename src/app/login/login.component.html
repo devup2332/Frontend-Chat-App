@@ -1,0 +1,42 @@
+<div class="login-page-container">
+  <div class="right-container">
+    <img src="assets/vectors/login_vector.png" alt="" />
+    <p class="description">
+      But I must explain to you how all this mistaken idea of denouncing
+      pleasure and praising pain
+    </p>
+  </div>
+  <div class="left-container">
+    <form class="form" [formGroup]="loginForm">
+      <h1 class="title-form">Welcome Back</h1>
+      <div class="control-container" [ngClass]="{ error: reqEmail, error1: invalidEmail }">
+        <input type="text" placeholder="Email" formControlName="email" autocomplete="off" />
+        <span class="error-message" *ngIf="reqEmail">Email is required</span>
+        <span class="error-message" *ngIf="invalidEmail">Email is invalid</span>
+      </div>
+
+      <div class="control-container" [ngClass]="{ error: reqPass }">
+        <input type="password" placeholder="Password" formControlName="password" autocomplete="off" />
+        <span class="error-message" *ngIf="reqPass">Password is required</span>
+      </div>
+
+      <button class="btn-login" type="submit" (click)="loginUser(loginForm.value,loader)">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" class="loader loading" #loader>
+          <path
+            d="M50.287,32A18.287,18.287,0,1,1,32,13.713a1.5,1.5,0,1,1,0,3A15.287,15.287,0,1,0,47.287,32a1.5,1.5,0,0,1,3,0Z"
+            data-name="Loading" />
+        </svg>
+        Sing in
+      </button>
+      <button class="btn-google-login" type="button">
+        <img src="assets/icons/google.svg" alt="" />
+        Login with Google
+      </button>
+      <p class="register-question">
+        You dont have an account ? <a routerLink="/register">Register</a>
+      </p>
+    </form>
+  </div>
+</div>
+
+<app-snackbar></app-snackbar>

@@ -1,0 +1,128 @@
+<div class="register-page-container">
+  <div class="right-container">
+    <p class="description">
+      At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis
+    </p>
+    <img src="assets/vectors/register_vector.png" alt="" />
+  </div>
+
+  <div class="left-container">
+    <form class="form" [formGroup]="registerForm">
+      <h1 class="title">Register</h1>
+      <p class="description-form">
+        Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil
+        impedit quo minus id quod maxime placeat facere possimus
+      </p>
+      <div
+        class="control"
+        [ngClass]="{
+          error: name1Req
+        }"
+      >
+        <input
+          type="text"
+          placeholder="First Name"
+          formControlName="first_name"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="name1Req">First name is required</p>
+      </div>
+
+      <div
+        class="control"
+        [ngClass]="{
+          error: name2Req
+        }"
+      >
+        <input
+          type="text"
+          placeholder="Last Name"
+          formControlName="last_name"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="name2Req">Last name is required</p>
+      </div>
+
+      <div
+        class="control"
+        [ngClass]="{
+          error: emailReq,
+          error1: emailInvalid,
+          error2: alreadyEmail
+        }"
+      >
+        <input
+          type="text"
+          placeholder="Email"
+          formControlName="email"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="emailReq">Email is required</p>
+        <p class="error-message" *ngIf="emailInvalid">Email is invalid</p>
+        <p class="error-message" *ngIf="alreadyEmail">
+          Email already is in use
+        </p>
+      </div>
+
+      <div
+        class="control"
+        [ngClass]="{
+          error: phoneReq,
+          error1: phoneInvalid
+        }"
+      >
+        <input
+          type="text"
+          placeholder="Phone Number"
+          formControlName="phone"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="phoneReq">Phone is required</p>
+        <p class="error-message" *ngIf="phoneInvalid">Enter just numbers</p>
+      </div>
+
+      <div
+        class="control"
+        [ngClass]="{
+          error: passReq,
+          error1: minLengthPass
+        }"
+      >
+        <input
+          type="password"
+          placeholder="Password"
+          formControlName="password"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="passReq">Please enter your password</p>
+        <p class="error-message" *ngIf="minLengthPass">Password to short</p>
+      </div>
+
+      <div
+        class="control"
+        [ngClass]="{
+          error: passwordIsNotEqual
+        }"
+      >
+        <input
+          type="password"
+          placeholder="Confirm Password"
+          formControlName="password_2"
+          autocomplete="off"
+        />
+        <p class="error-message" *ngIf="passwordIsNotEqual">
+          Password is not equal
+        </p>
+      </div>
+
+      <button class="btn-register" (click)="register_user(registerForm.value)">
+        Register
+      </button>
+
+      <p class="login-question">
+        You already have an account ? <a routerLink="/login">Login</a>
+      </p>
+    </form>
+  </div>
+</div>
+<app-snackbar></app-snackbar>

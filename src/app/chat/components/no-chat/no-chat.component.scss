@@ -1,0 +1,27 @@
+.no-chat-view-container {
+  height: 100%;
+  position: relative;
+
+  .body-no-chat {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 70%;
+    transform: translate(-50%, -50%);
+
+    img {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .no-chat-text-information {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 35px;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--main-text-color-1);
+      transition: color 0.3s ease;
+    }
+  }
+}

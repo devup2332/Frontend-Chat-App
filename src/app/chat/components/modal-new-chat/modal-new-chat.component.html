@@ -1,0 +1,17 @@
+<div class="new-chat-modal-container" [ngClass]="{visible:modalActive}" (click)="closeModal($event)">
+    <form class="modal" [formGroup]="newChatForm" (ngSubmit)="createChat()">
+        <h1 class="title-modal">Start a new conversation</h1>
+        <div class="input-container">
+            <input type="text" placeholder="Search" formControlName="search" (input)="serchingUser()">
+            <ul class="users-filtereds">
+                <li class="option" *ngFor="let user of users" (click)="createChat(user)">
+                    <img [src]="user?.avatar?.url" alt="">
+                    <span>{{user?.first_name + " " + user?.last_name}}</span>
+                </li>
+            </ul>
+        </div>
+
+    </form>
+</div>
+
+<app-snackbar></app-snackbar>
